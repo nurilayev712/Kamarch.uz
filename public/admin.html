@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamar.uz - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <nav class="bg-brown-800 text-white shadow-md p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Admin Panel</h1>
+            <a href="/" class="hover:text-gray-300">Saytga qaytish</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4 mt-8 flex flex-col md:flex-row gap-8">
+        <!-- Sidebar -->
+        <div class="md:w-1/4">
+            <div class="bg-white p-4 rounded-xl shadow-md">
+                <ul class="space-y-2">
+                    <li><button onclick="showTab('orders')" class="w-full text-left p-3 bg-gray-100 rounded font-bold hover:bg-gray-200"><i class="fas fa-shopping-bag mr-2"></i> Buyurtmalar</button></li>
+                    <li><button onclick="showTab('products')" class="w-full text-left p-3 rounded font-bold hover:bg-gray-200"><i class="fas fa-boxes mr-2"></i> Mahsulotlar</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="md:w-3/4 bg-white p-6 rounded-xl shadow-md min-h-[500px]">
+            <!-- Orders Tab -->
+            <div id="orders-tab">
+                <h2 class="text-2xl font-bold mb-4">So'nggi Buyurtmalar</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-700">
+                                <th class="p-3">ID</th>
+                                <th class="p-3">Vaqt</th>
+                                <th class="p-3">Mijoz</th>
+                                <th class="p-3">Telefon</th>
+                                <th class="p-3">Summa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-list">
+                            <tr><td colspan="5" class="text-center p-4">Yuklanmoqda...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Products Tab -->
+            <div id="products-tab" class="hidden">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold">Mahsulotlar</h2>
+                    <button onclick="document.getElementById('add-product-modal').classList.remove('hidden')" class="bg-green-500 text-white px-4 py-2 rounded font-bold hover:bg-green-600">+ Yangi qo'shish</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="admin-products-list">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="add-product-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center">
+        <div class="bg-white p-6 rounded-xl w-full max-w-md">
+            <h2 class="text-xl font-bold mb-4">Yangi kamar qo'shish</h2>
+            <form id="add-product-form" class="space-y-3">
+                <input type="text" id="p-name-uz" placeholder="Nomi (O'zbekcha)" required class="w-full border p-2 rounded">
+                <input type="text" id="p-name-ru" placeholder="Nomi (Ruscha)" required class="w-full border p-2 rounded">
+                <input type="number" id="p-price" placeholder="Narxi (so'm)" required class="w-full border p-2 rounded">
+                <input type="url" id="p-image" placeholder="Rasm ssilkasi (URL)" required class="w-full border p-2 rounded">
+                <textarea id="p-desc-uz" placeholder="Ta'rifi (O'zbekcha)" class="w-full border p-2 rounded"></textarea>
+                <textarea id="p-desc-ru" placeholder="Ta'rifi (Ruscha)" class="w-full border p-2 rounded"></textarea>
+                
+                <div class="flex justify-end space-x-2 pt-4">
+                    <button type="button" onclick="document.getElementById('add-product-modal').classList.add('hidden')" class="px-4 py-2 bg-gray-300 rounded">Bekor qilish</button>
+                    <button type="submit" class="px-4 py-2 bg-brown-600 text-white rounded">Qo'shish</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

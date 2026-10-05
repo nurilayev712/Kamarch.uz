@@ -1,0 +1,32 @@
+{
+  "products": [
+    { 
+      "id": 1, 
+      "name_uz": "Klassik Qora Charm Kamar", 
+      "name_ru": "Классический Черный Кожаный Ремень",
+      "price": 150000, 
+      "image": "https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=2070&auto=format&fit=crop", 
+      "desc_uz": "Haqiqiy charmdan tayyorlangan klassik uslubdagi kamar. Har qanday kostyum bilan ajoyib mos tushadi.",
+      "desc_ru": "Ремень классического стиля из натуральной кожи. Отлично сочетается с любым костюмом."
+    },
+    { 
+      "id": 2, 
+      "name_uz": "Jigarrang Vintaj Kamar", 
+      "name_ru": "Коричневый Винтажный Ремень",
+      "price": 180000, 
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1887&auto=format&fit=crop", 
+      "desc_uz": "Jinsi shimlar uchun juda mos keladigan vintaj uslub.",
+      "desc_ru": "Винтажный стиль, который отлично подходит к джинсам."
+    },
+    { 
+      "id": 3, 
+      "name_uz": "Avtomat Qulfli Qora Kamar", 
+      "name_ru": "Черный Ремень с Автоматической Пряжкой",
+      "price": 200000, 
+      "image": "https://images.unsplash.com/photo-1627252258812-78d1fb52c92e?q=80&w=1887&auto=format&fit=crop", 
+      "desc_uz": "Zamonaviy avtomat qulf tizimiga ega qulay kamar.",
+      "desc_ru": "Удобный ремень с современной системой автоматической блокировки."
+    }
+  ],
+  "orders": []
+}

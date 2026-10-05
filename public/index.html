@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="uz" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamar - Sifatli va Ko'rkam Belbog'lar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: { colors: { brown: { 600: '#8b4513', 800: '#5c2e0b' } } }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="bg-brown-800 text-white shadow-md fixed w-full z-50 top-0 transition-colors duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-wider uppercase">
+                <a href="#">Kamar</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#products" class="hidden md:block hover:text-gray-300" data-i18n="navProducts">Mahsulotlar</a>
+                <a href="#reviews" class="hidden md:block hover:text-gray-300" data-i18n="navReviews">Fikrlar</a>
+                <a href="#contact" class="hidden md:block hover:text-gray-300" data-i18n="navContact">Aloqa</a>
+                
+                <!-- Language Toggle -->
+                <button id="lang-toggle" class="hover:text-gray-300 font-bold border-2 border-white rounded px-2 py-1 text-sm">
+                    RU
+                </button>
+
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="hover:text-gray-300 focus:outline-none">
+                    <i class="fas fa-moon text-xl" id="theme-toggle-icon"></i>
+                </button>
+
+                <button id="cart-btn" class="relative hover:text-gray-300 flex items-center">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="ml-2 hidden md:inline" data-i18n="cartText">Savat</span>
+                    <span id="cart-count" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="mt-16 relative h-[75vh] flex items-center overflow-hidden bg-gray-900">
+        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="https://cdn.pixabay.com/video/2021/08/21/85827-590928004_large.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent z-10"></div>
+        
+        <div class="container mx-auto px-4 relative z-20 text-white w-full md:w-2/3">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight" data-i18n="heroTitle">Haqiqiy Charm, <br><span class="text-brown-600">Betakror Uslub</span></h1>
+            <p class="text-lg md:text-2xl mb-10 text-gray-200" data-i18n="heroDesc">O'zingizga mos bo'lgan eng yuqori sifatli belbog'larni toping. Har bir detalda mukammallik.</p>
+            <div class="flex space-x-4">
+                <a href="#products" class="bg-brown-600 hover:bg-brown-800 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1" data-i18n="heroBtn">
+                    Xaridni boshlash
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section class="py-12 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 transition hover:-translate-y-2 duration-300">
+                    <div class="bg-brown-100 dark:bg-brown-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-brown-800 dark:text-brown-100">
+                        <i class="fas fa-check-circle text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="benefit1Title">100% Haqiqiy Charm</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-i18n="benefit1Desc">Bizning kamarlarimiz faqat eng yuqori sifatli tabiiy charmdan tayyorlanadi.</p>
+                </div>
+                <div class="p-6 transition hover:-translate-y-2 duration-300">
+                    <div class="bg-brown-100 dark:bg-brown-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-brown-800 dark:text-brown-100">
+                        <i class="fas fa-truck text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="benefit2Title">Tez Yetkazib Berish</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-i18n="benefit2Desc">O'zbekiston bo'ylab 1-3 kun ichida uyingizgacha yetkazib beramiz.</p>
+                </div>
+                <div class="p-6 transition hover:-translate-y-2 duration-300">
+                    <div class="bg-brown-100 dark:bg-brown-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-brown-800 dark:text-brown-100">
+                        <i class="fas fa-tags text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="benefit3Title">Hamyonbop Narxlar</h3>
+                    <p class="text-gray-600 dark:text-gray-300" data-i18n="benefit3Desc">Ishlab chiqaruvchidan to'g'ridan-to'g'ri xarid qilib, pulingizni tejang.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12" data-i18n="collectionsTitle">To'plamlar</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1559582798-678dfc71cee4?q=80&w=1887&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Klasik">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center transition group-hover:bg-opacity-30">
+                        <h3 class="text-white text-4xl font-bold tracking-wider" data-i18n="colClassic">Klassik</h3>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl shadow-lg h-72 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1627252258812-78d1fb52c92e?q=80&w=1887&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Avtomat">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center transition group-hover:bg-opacity-30">
+                        <h3 class="text-white text-4xl font-bold tracking-wider" data-i18n="colAuto">Avtomat Qulfli</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 container mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-4xl font-extrabold mb-4" data-i18n="productsTitle">Eng Ko'p Sotilganlar</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-lg" data-i18n="productsDesc">Mijozlarimiz tanlagan eng yaxshi modellar.</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto mb-12 flex flex-col md:flex-row gap-4">
+            <div class="relative flex-grow">
+                <input type="text" id="search-input" class="w-full pl-12 pr-4 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:border-brown-600 transition shadow-sm">
+                <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
+            </div>
+            <div class="w-full md:w-64">
+                <select id="sort-select" class="w-full px-4 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:border-brown-600 transition shadow-sm appearance-none cursor-pointer">
+                    <option value="default" data-i18n="sortDefault">Odatiy tartib</option>
+                    <option value="price-asc" data-i18n="sortAsc">Narx: Arzondan qimmatga</option>
+                    <option value="price-desc" data-i18n="sortDesc">Narx: Qimmatdan arzonga</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            <!-- Products injected by JS -->
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="py-20 bg-brown-800 text-white transition-colors duration-300">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12" data-i18n="navReviews">Fikrlar</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-brown-700 p-8 rounded-xl shadow-lg">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic mb-4">"Juda sifatli kamar ekan. Avval bozorlardan olardim, lekin bu mutlaqo boshqacha daraja. Rahmat!"</p>
+                    <h4 class="font-bold">- Sanjar B.</h4>
+                </div>
+                <div class="bg-brown-700 p-8 rounded-xl shadow-lg">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic mb-4">"Tez yetkazib berishdi. Akamga sovg'a qilgandim, juda yoqdi. Qadoqlanishi ham chiroyli."</p>
+                    <h4 class="font-bold">- Malika T.</h4>
+                </div>
+                <div class="bg-brown-700 p-8 rounded-xl shadow-lg">
+                    <div class="text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="italic mb-4">"Narxiga nisbatan sifati a'lo. Jinsi shimlar bilan kiyishga zo'r tushdi. Tavsiya qilaman."</p>
+                    <h4 class="font-bold">- Otabek S.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact and Map Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12" data-i18n="contactTitle">Biz bilan aloqa</h2>
+            <div class="flex flex-col md:flex-row gap-10 max-w-6xl mx-auto">
+                <div class="md:w-1/2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.387110992389!2d69.2401!3d41.311081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b0cc379e9c3%3A0xa5a9323b4aa5cb98!2sTashkent%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1655208465494!5m2!1sen!2s" width="100%" height="300" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="md:w-1/2 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-4" data-i18n="contactAddressTitle">Bizning Manzil</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6"><i class="fas fa-map-marker-alt text-brown-600 mr-2"></i> <span data-i18n="contactAddress">Toshkent shahar...</span></p>
+                    
+                    <h3 class="text-2xl font-bold mb-4" data-i18n="contactTimeTitle">Ish vaqti</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6"><i class="far fa-clock text-brown-600 mr-2"></i> <span data-i18n="contactTime">Dushanba - Shanba</span></p>
+                    
+                    <div class="flex space-x-4 mt-2">
+                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center transition shadow-lg"><i class="fab fa-telegram-plane text-2xl"></i></a>
+                        <a href="#" class="bg-green-500 hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center transition shadow-lg"><i class="fab fa-whatsapp text-2xl"></i></a>
+                        <a href="#" class="bg-pink-600 hover:bg-pink-700 text-white w-12 h-12 rounded-full flex items-center justify-center transition shadow-lg"><i class="fab fa-instagram text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-75 z-[60] hidden flex justify-center items-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl flex flex-col md:flex-row relative transition-colors duration-300">
+            <button id="close-product-modal" class="absolute top-4 right-4 text-gray-500 hover:text-black dark:text-gray-300 dark:hover:text-white z-10 bg-white dark:bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center shadow">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="md:w-1/2 h-64 md:h-auto">
+                <img id="modal-img" src="" alt="Product" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                <h3 id="modal-title" class="text-3xl font-bold mb-2 text-gray-800 dark:text-white"></h3>
+                <p id="modal-price" class="text-2xl text-brown-600 font-bold mb-4"></p>
+                <p id="modal-desc" class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3"></p>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Uzunligi (Sm) / Размер</label>
+                    <select id="modal-size" class="w-full border-2 border-gray-200 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-4 py-2 focus:border-brown-600 outline-none">
+                        <option value="100">100 sm</option>
+                        <option value="110">110 sm</option>
+                        <option value="120">120 sm</option>
+                        <option value="130">130 sm</option>
+                    </select>
+                </div>
+                
+                <button id="modal-add-btn" class="w-full bg-brown-600 hover:bg-brown-800 text-white font-bold py-4 rounded-lg transition transform hover:-translate-y-1 shadow-lg" data-i18n="addToCartBtn">
+                    Savatga Qo'shish
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex justify-end">
+        <div class="bg-white dark:bg-gray-800 w-full max-w-md h-full shadow-2xl flex flex-col transform transition-transform duration-300 transition-colors duration-300">
+            <div class="p-4 bg-brown-800 text-white flex justify-between items-center">
+                <h3 class="text-xl font-bold" data-i18n="cartText">Sizning Savatingiz</h3>
+                <button id="close-cart" class="text-white hover:text-gray-300">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="flex-grow overflow-y-auto p-4 space-y-4">
+                <div class="text-center text-gray-500 mt-10" data-i18n="cartEmpty">Savatingiz bo'sh</div>
+            </div>
+
+            <div class="border-t dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+                <div class="flex justify-between items-center mb-4 text-xl font-bold">
+                    <span data-i18n="cartTotal">Jami:</span>
+                    <span id="cart-total">0 so'm</span>
+                </div>
+                <button id="checkout-btn" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded transition duration-300" data-i18n="checkoutBtn">
+                    Buyurtma Berish
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden flex justify-center items-center">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl w-full max-w-md shadow-2xl m-4 transition-colors duration-300 overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white" data-i18n="checkoutTitle">Buyurtma ma'lumotlari</h3>
+                <button id="close-checkout" class="text-gray-500 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="checkout-form" class="space-y-3">
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-bold mb-1 text-sm" data-i18n="labelName">Ismingiz</label>
+                    <input type="text" id="cust-name" required class="w-full border-2 border-gray-200 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-brown-600">
+                </div>
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-bold mb-1 text-sm" data-i18n="labelPhone">Telefon raqamingiz</label>
+                    <input type="tel" id="cust-phone" required placeholder="+998" class="w-full border-2 border-gray-200 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-brown-600">
+                </div>
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-bold mb-1 text-sm" data-i18n="labelAddress">Manzil</label>
+                    <textarea id="cust-address" required rows="2" class="w-full border-2 border-gray-200 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-brown-600"></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-bold mb-1 text-sm" data-i18n="labelComment">Qo'shimcha izoh</label>
+                    <textarea id="cust-comment" rows="1" class="w-full border-2 border-gray-200 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-brown-600"></textarea>
+                </div>
+                
+                <!-- Payment Method -->
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-bold mb-1 text-sm" data-i18n="labelPayment">To'lov turi</label>
+                    <div class="flex gap-4">
+                        <label class="flex items-center space-x-2 cursor-pointer text-sm">
+                            <input type="radio" name="payment_method" value="cash" checked class="text-brown-600 focus:ring-brown-600 h-4 w-4">
+                            <span data-i18n="payCash" class="dark:text-gray-300">Naqd pul</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer text-sm">
+                            <input type="radio" name="payment_method" value="card" class="text-brown-600 focus:ring-brown-600 h-4 w-4">
+                            <span data-i18n="payCard" class="dark:text-gray-300">Karta (Click)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 dark:text-gray-300 font-bold mb-1 text-sm" data-i18n="labelPromo">Chegirma kodi</label>
+                    <div class="flex space-x-2">
+                        <input type="text" id="promo-code" class="w-full border-2 border-gray-200 dark:border-gray-600 dark:bg-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-brown-600 uppercase">
+                        <button type="button" id="apply-promo-btn" class="bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white px-4 rounded-lg hover:bg-gray-300 transition" data-i18n="applyPromo">Qo'llash</button>
+                    </div>
+                    <p id="promo-message" class="text-xs mt-1 font-bold"></p>
+                </div>
+
+                <div class="pt-2 border-t dark:border-gray-600">
+                    <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <span data-i18n="deliveryText">Yetkazib berish:</span>
+                        <span>20 000 so'm</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-lg">
+                        <span data-i18n="totalPaymentText">Jami To'lov:</span>
+                        <span id="final-total" class="text-brown-600">0 so'm</span>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit-order-btn" class="w-full bg-brown-600 hover:bg-brown-800 text-white font-bold py-3 rounded-lg transition duration-300 mt-2 flex justify-center items-center">
+                    <span data-i18n="submitOrder">Tasdiqlash</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-[70]">
+        Muvaffaqiyatli bajarildi!
+    </div>
+
+    <footer class="bg-gray-900 text-gray-300 py-10 text-center transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-white mb-4">Kamar.uz</h2>
+            <p class="mb-4 text-sm text-gray-400" data-i18n="footerDesc">Erkaklar va Ayollar uchun eng sifatli charm belbog'lar fabrikasi.</p>
+            <p>&copy; 2026 Kamar.uz</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
